@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison de l'Europe Réunion Océan Indien</title>
+  <meta name="description" content="Association réunionnaise dédiée à l'Europe, à la coopération, à la jeunesse et à l'ouverture internationale.">
+  <style>
+    :root{
+      --blue:#18479d;
+      --blue-dark:#103574;
+      --yellow:#ffcc00;
+      --text:#1f2937;
+      --muted:#5b6472;
+      --line:#dbe4ef;
+      --bg:#f5f7fb;
+      --white:#ffffff;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(calc(100% - 32px),var(--max));margin:auto}
+    .topbar{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid #e5eaf1;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:54px;height:54px;object-fit:contain;border-radius:12px;background:var(--blue)}
+    .brand strong{display:block;color:var(--blue-dark);font-size:1rem;line-height:1.2}
+    .brand span{font-size:.92rem;color:var(--muted)}
+    .menu{display:flex;flex-wrap:wrap;gap:16px;font-weight:700;color:var(--blue-dark);font-size:.95rem}
+    .hero{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:72px 0 56px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+    .badge{display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.09);font-size:.92rem;margin-bottom:18px}
+    h1{margin:0 0 18px;font-size:clamp(2.2rem,5vw,4.2rem);line-height:.97;letter-spacing:-.03em}
+    .hero p{font-size:1.08rem;margin:0;max-width:720px;color:rgba(255,255,255,.92)}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+    .btn{display:inline-block;padding:14px 22px;border-radius:999px;font-weight:700}
+    .btn-primary{background:var(--yellow);color:#102343}
+    .btn-secondary{border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.08)}
+    .hero-card{background:rgba(255,255,255,.08);padding:22px;border-radius:24px;border:1px solid rgba(255,255,255,.16)}
+    .hero-card img{border-radius:18px;background:#123b83}
+    .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .fact{padding:14px;border-radius:16px;background:rgba(255,255,255,.10);font-size:.95rem}
+    .fact strong{display:block;margin-bottom:4px}
+    section{padding:74px 0}
+    .soft{background:var(--bg)}
+    .section-title{margin:0 0 10px;font-size:clamp(1.9rem,3vw,2.6rem);color:var(--blue-dark);line-height:1.05}
+    .lead{max-width:780px;margin:0 0 32px;color:var(--muted);font-size:1.04rem}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .card,.box,.event,.person{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+    .card h3,.box h3,.event h3,.person h3{margin:0 0 10px;color:var(--blue-dark)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .box .icon{width:52px;height:52px;border-radius:15px;background:rgba(24,71,157,.09);display:grid;place-items:center;font-size:1.4rem;margin-bottom:14px}
+    .agenda{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .event small{display:inline-block;color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+    .team{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .person{text-align:center;padding:22px 18px}
+    .avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;background:linear-gradient(135deg,rgba(24,71,157,.12),rgba(255,204,0,.32));color:var(--blue-dark);font-weight:800}
+    .person p,.card p,.box p,.event p,.person span,li{color:#334155}
+    .cta{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
+    .panel{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;border-radius:26px;padding:32px}
+    .panel h2{margin:0 0 12px;font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.05}
+    .panel p{margin:0 0 18px;color:rgba(255,255,255,.92)}
+    .mini{display:grid;gap:16px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .footer{background:#0f2f68;color:rgba(255,255,255,.86);padding:28px 0 40px}
+    .footer strong{color:#fff}
+    ul{margin:0;padding-left:18px}
+    @media (max-width:1080px){
+      .hero-grid,.split,.grid-3,.agenda,.team,.cta,.contact-grid{grid-template-columns:1fr}
+      .team{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .nav{flex-direction:column;align-items:flex-start}
+      .facts,.team{grid-template-columns:1fr}
+      .menu{gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#accueil">
+        <img src="logo-maison-europe.png" alt="Logo Maison de l'Europe Réunion Océan Indien">
+        <div>
+          <strong>Maison de l'Europe</strong>
+          <span>Réunion Océan Indien</span>
+        </div>
+      </a>
+      <nav class="menu">
+        <a href="#association">Association</a>
+        <a href="#missions">Missions</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#equipe">Équipe</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero" id="accueil">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge">Informer • Impliquer • Relier</div>
+        <h1>Faisons rayonner l'Océan Indien au sein de l'Europe.</h1>
+        <p>La Maison de l'Europe Réunion Océan Indien est une association installée à Saint-Pierre, dédiée à l'information, à la coopération, à la jeunesse et au dialogue entre La Réunion, l'Europe et l'Indo-Pacifique.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Nous contacter</a>
+          <a class="btn btn-secondary" href="#agenda">Découvrir nos actions</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="logo-maison-europe.png" alt="Logo de la Maison de l'Europe Réunion Océan Indien">
+        <div class="facts">
+          <div class="fact"><strong>Association 1901</strong>Structure indépendante et pluraliste.</div>
+          <div class="fact"><strong>Saint-Pierre</strong>Association basée dans le Sud de La Réunion.</div>
+          <div class="fact"><strong>2026</strong>Afterworks, ateliers, conférences et événements européens.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="association">
+    <div class="wrap">
+      <h2 class="section-title">Une association pour rapprocher l'Europe du territoire</h2>
+      <p class="lead">La Maison de l'Europe Réunion Océan Indien a pour vocation d'organiser des manifestations, échanges, colloques, conférences et actions d'information autour de l'Europe, des relations internationales, de la coopération et de la jeunesse.</p>
+      <div class="split">
+        <article class="card">
+          <h3>Qui sommes-nous ?</h3>
+          <p>Association régie par la loi de 1901, la structure se présente comme pluraliste et strictement indépendante de toute mouvance politique, religieuse ou idéologique. Elle agit comme un trait d'union entre La Réunion, l'Europe et les dynamiques régionales de l'Océan Indien.</p>
+        </article>
+        <article class="card">
+          <h3>Nos repères</h3>
+          <ul>
+            <li>Nom officiel : Maison de l'Europe Réunion Océan Indien</li>
+            <li>Implantation : Saint-Pierre, La Réunion</li>
+            <li>Déclaration : août 2025</li>
+            <li>Contact : contact@maisondeleurope-oi.re</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="missions">
+    <div class="wrap">
+      <h2 class="section-title">Nos missions</h2>
+      <p class="lead">Informer, créer du lien, encourager la mobilité et donner des clés concrètes pour mieux comprendre les dispositifs européens et leurs impacts locaux.</p>
+      <div class="grid-3">
+        <article class="box">
+          <div class="icon">🌍</div>
+          <h3>Informer sur l'Europe</h3>
+          <p>Rendre l'Europe plus lisible à travers des rencontres, des conférences, des échanges et des formats accessibles au grand public.</p>
+        </article>
+        <article class="box">
+          <div class="icon">🤝</div>
+          <h3>Favoriser la coopération</h3>
+          <p>Développer des relations avec d'autres territoires, institutions et organisations pour faire émerger des partenariats utiles et concrets.</p>
+        </article>
+        <article class="box">
+          <div class="icon">🎓</div>
+          <h3>Encourager la jeunesse</h3>
+          <p>Informer les jeunes sur les programmes européens, régionaux ou départementaux liés à la mobilité, à l'engagement et aux opportunités d'avenir.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <div class="wrap">
+      <h2 class="section-title">Temps forts et rendez-vous 2026</h2>
+      <p class="lead">Le programme prévoit des afterworks conviviaux, des ateliers pratiques et plusieurs rendez-vous européens pour rapprocher l'Europe des Réunionnaises et des Réunionnais.</p>
+      <div class="agenda">
+        <article class="event">
+          <small>Afterworks</small>
+          <h3>Des rencontres régulières</h3>
+          <p>Des rendez-vous en début de mois mêlant ateliers, conférences, témoignages, formats culturels et échanges de proximité.</p>
+        </article>
+        <article class="event">
+          <small>9 mai</small>
+          <h3>Journée de l'Europe</h3>
+          <p>Un temps fort symbolique pour valoriser l'appartenance européenne et les projets du territoire.</p>
+        </article>
+        <article class="event">
+          <small>Avril / Mai</small>
+          <h3>European Youth Week</h3>
+          <p>Des actions tournées vers la jeunesse, l'engagement, la mobilité et les opportunités européennes.</p>
+        </article>
+        <article class="event">
+          <small>Octobre</small>
+          <h3>Erasmus Days & EU Code Week</h3>
+          <p>Deux rendez-vous pour parler mobilité, apprentissage, numérique et ouverture internationale.</p>
+        </article>
+        <article class="event">
+          <small>Ateliers</small>
+          <h3>Formats concrets et participatifs</h3>
+          <p>Europass, cartographie des dispositifs européens, simulation de Parlement européen et thématiques du quotidien.</p>
+        </article>
+        <article class="event">
+          <small>Novembre</small>
+          <h3>SERD</h3>
+          <p>Semaine européenne de la réduction des déchets et mise en valeur des démarches responsables.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="equipe">
+    <div class="wrap">
+      <h2 class="section-title">L'équipe associative</h2>
+      <p class="lead">Une gouvernance bénévole engagée, portée par des profils complémentaires autour d'un objectif commun : créer un lien utile entre l'Europe et le territoire réunionnais.</p>
+      <div class="team">
+        <article class="person"><div class="avatar">JP</div><h3>Jean Philippe Payet</h3><span>Président</span></article>
+        <article class="person"><div class="avatar">MC</div><h3>Marielle Chevallier</h3><span>Vice-présidente</span></article>
+        <article class="person"><div class="avatar">PF</div><h3>Patrice Fontaine</h3><span>Trésorier</span></article>
+        <article class="person"><div class="avatar">CG</div><h3>Christophe Gonthier</h3><span>Secrétaire</span></article>
+        <article class="person"><div class="avatar">HB</div><h3>Héléna Burglohner</h3><span>Bénévole / communication</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="section-title">Contact</h2>
+      <p class="lead">Vous souhaitez en savoir plus sur l'association, proposer un partenariat ou participer à une action ? Écrivez-nous.</p>
+      <div class="contact-grid">
+        <article class="card">
+          <h3>Coordonnées</h3>
+          <p><strong>Maison de l'Europe Réunion Océan Indien</strong><br>Saint-Pierre, La Réunion</p>
+          <p>Email : <a href="mailto:contact@maisondeleurope-oi.re" style="color:#18479d;font-weight:700;">contact@maisondeleurope-oi.re</a></p>
+        </article>
+        <article class="card">
+          <h3>Faire évoluer le site</h3>
+          <p>Cette base peut ensuite accueillir des actualités, une galerie photo, un formulaire d'adhésion, une page partenaires ou un agenda plus détaillé.</p>
+          <p><a href="mailto:contact@maisondeleurope-oi.re?subject=Prise%20de%20contact%20-%20Maison%20de%20l%27Europe" style="color:#18479d;font-weight:700;">Envoyer un message</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <strong>Maison de l'Europe Réunion Océan Indien</strong><br>
+      Site vitrine – version de démonstration
+    </div>
+  </footer>
+</body>
+</html>
